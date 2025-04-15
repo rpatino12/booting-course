@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: booting-course
+  output:
+    ansi:
+      enabled: always
+  profiles:
+    active: prod
+
+---
+# Development profile
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+server:
+  port: 8080
+
+---
+# Production profile
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+server:
+  port: 9000
