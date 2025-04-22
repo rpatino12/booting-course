@@ -2,6 +2,8 @@ package com.rpatino12.lil.booting_course.data.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -26,5 +28,6 @@ public class EmployeeEntity {
     private String lastName;
 
     @Column(name = "POSITION")
-    private String position;
+    @Enumerated(EnumType.STRING)
+    private Position position;
 }
