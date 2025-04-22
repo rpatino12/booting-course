@@ -9,6 +9,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testdb
+    username: postgres
+    password: postgres
 
 ---
 # Development profile
