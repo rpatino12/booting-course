@@ -8,8 +8,5 @@ WORKDIR /app
 # Replace 'your-app.jar' with the name of your Spring Boot JAR file
 COPY target/booting-course-0.0.1-SNAPSHOT.jar app.jar
 
-# Step 4: Expose the port your application will run on (default is 8080)
-EXPOSE 8080
-
-# Step 5: Define the command to run the application
-CMD ["java", "-Dspring.profiles.active=dev", "-jar", "app.jar"]
+# Step 4: Define the command to run the application
+CMD ["java", "-jar", "app.jar"]
