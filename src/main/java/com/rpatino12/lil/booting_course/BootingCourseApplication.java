@@ -15,9 +15,11 @@ public class BootingCourseApplication {
 	@Bean
 	public CommandLineRunner run() {
 		return args -> {
-			for (int i = 1; i <= 10; i++) {
-				Thread.sleep(1000);
-				System.out.println("Counting: " + i);
+			for (int i = 1; i <= 100; i++) {
+				String result = "";
+				result += (i % 3) == 0 ? "Fizz" : "";
+				result += (i % 5) == 0 ? "Buzz" : "";
+				System.out.println(result.isEmpty() ? i : result);
 			}
 		};
 	}
