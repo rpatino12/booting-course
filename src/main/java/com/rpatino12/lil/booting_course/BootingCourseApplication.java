@@ -1,5 +1,6 @@
 package com.rpatino12.lil.booting_course;
 
+import com.rpatino12.lil.booting_course.data.repository.RoomRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,16 +13,12 @@ public class BootingCourseApplication {
 		SpringApplication.run(BootingCourseApplication.class, args);
 	}
 
+	// We can inject the RoomRepository because it is annotated with @Repository
+	// and the ComponentScan of Spring Boot will pick it up
 	@Bean
-	public CommandLineRunner run() {
+	public CommandLineRunner run(RoomRepository roomRepository) {
 		return args -> {
-			int limit = args.length > 0 ? Integer.parseInt(args[0]) : 0;
-			for (int i = 1; i <= limit; i++) {
-				String result = "";
-				result += (i % 3) == 0 ? "Fizz" : "";
-				result += (i % 5) == 0 ? "Buzz" : "";
-				System.out.println(result.isEmpty() ? i : result);
-			}
+			roomRepository.findAll().forEach(System.out::println);
 		};
 	}
 
