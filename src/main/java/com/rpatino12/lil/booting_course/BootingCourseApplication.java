@@ -15,7 +15,8 @@ public class BootingCourseApplication {
 	@Bean
 	public CommandLineRunner run() {
 		return args -> {
-			for (int i = 1; i <= 100; i++) {
+			int limit = args.length > 0 ? Integer.parseInt(args[0]) : 0;
+			for (int i = 1; i <= limit; i++) {
 				String result = "";
 				result += (i % 3) == 0 ? "Fizz" : "";
 				result += (i % 5) == 0 ? "Buzz" : "";
